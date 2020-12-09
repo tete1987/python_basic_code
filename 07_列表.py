@@ -81,5 +81,15 @@
 #注：循环嵌套首先要将里面的嵌套跑完，之后才开始循环外面的循环，第二次循环外面的循环时，里面的嵌套又重新执行一遍。
 
 #循环嵌套的推导式写法：
-list_square = [i*j for i in range(1,4) for j in range(1,4)]
-print(list_square)
+# list_square = [i*j for i in range(1,4) for j in range(1,4)]
+# print(list_square)
+
+# 10）切片
+my_foods =['pizza','falafei','carrot cake']
+friend_food = my_foods[:]
+
+my_foods.append('icecream')
+friend_food.append('apple')
+
+print(my_foods)
+print(friend_food)
