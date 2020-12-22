@@ -85,11 +85,24 @@
 # print(list_square)
 
 # 10）切片
-my_foods =['pizza','falafei','carrot cake']
-friend_food = my_foods[:]
+# my_foods =['pizza','falafei','carrot cake']
+# friend_food = my_foods[:]
+#
+# my_foods.append('icecream')
+# friend_food.append('apple')
+#
+# print(my_foods)
+# print(friend_food)
 
-my_foods.append('icecream')
-friend_food.append('apple')
+current_users = ['tete','xiaole','xiaoniu','hexu','shaokai']
+current_users_lower = [i.lower() for i in current_users]
 
-print(my_foods)
-print(friend_food)
+
+new_users = ['tete','huahua','Xiaoniu','HUAWEI','SHAOKAI']
+new_users_lower = [w.lower() for w in new_users]
+
+for new_user in new_users_lower:
+    if new_user in current_users_lower:
+        print(f" {new_user} 该名称已被注册")
+    else:
+        print(f" {new_user} 该账户可使用")
