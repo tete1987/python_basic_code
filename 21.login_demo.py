@@ -36,8 +36,8 @@ def login(username,password):
     '''
     f = open("login.md","r")
     for line in f:
-        list = line.split("|")
-        if list[0] == username and list[1] == password:
+        list_user = line.split("|")
+        if list_user[0] == username and list_user[1] == password:
             return True
         else:
             return False
@@ -49,7 +49,7 @@ def info(username,password):
     '''
     f = open("login.md", "r")
     for line in f:
-        list = line.split("|")
+        list_user = line.split("|")
     r = login(username,password)
     if r:
         print("{0}您好，欢迎您登录".format(info[0]))
