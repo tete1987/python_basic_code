@@ -27,38 +27,161 @@
 # f = Person()
 # print(f.get_name())
 
-class Person:
-    def __init__(self,name,age,gender):
-        #实例属性
-        self.name = name
-        self.gender = gender
-        self.age = age
+# class Person:
+#     def __init__(self,name,age,gender):
+#         #实例属性
+#         self.name = name
+#         self.gender = gender
+#         self.age = age
+#
+#     def eat(self):
+#         print(f"name : {self.name},age : {self.age},gender : {self.gender} 我在吃")
+#
+#     def drink(self):
+#         print(f"name : {self.name},age : {self.age},gender : {self.gender} 我在喝")
+#
+#     def run(self):
+#         print(f"name : {self.name},age : {self.age},gender : {self.gender} 我在跑")
+#
+#     def set_att(self,value):
+#         self.value = value
+#
+#
+# #实例化的过程
+# xiaoming = Person("xiaoming",10,"male")
+# xiaohong = Person("xiaohong",28,"female")
+#
+# print(xiaoming.name)
+# #调用方法
+# xiaoming.drink()
+# xiaoming.eat()
+#
+# xiaoming.set_att("hallo")
+# print(xiaoming.value)
+#
+# xiaohong.drink()
+# xiaohong.run()
 
-    def eat(self):
-        print(f"name : {self.name},age : {self.age},gender : {self.gender} 我在吃")
-
-    def drink(self):
-        print(f"name : {self.name},age : {self.age},gender : {self.gender} 我在喝")
-
-    def run(self):
-        print(f"name : {self.name},age : {self.age},gender : {self.gender} 我在跑")
-
-    def set_att(self,value):
-        self.value = value
+'''
+动态参数案例
+'''
 
 
-#实例化的过程
-xiaoming = Person("xiaoming",10,"male")
-xiaohong = Person("xiaohong",28,"female")
+# class Person:
+#     def __init__(self,*args):
+#         self.args = args
+#
+#     def info(self):
+#        print("人员的姓名：",self.args)
+#
+# per1 = Person(1,4,56,45)
+# per1.info()
 
-print(xiaoming.name)
-#调用方法
-xiaoming.drink()
-xiaoming.eat()
+# class Person:
+#     def __init__(self):
+#         print("我是构造函数")
+#
+#     def __del__(self):
+#         print("我是析构函数")
+#
+#     def info(self):
+#         print("我是方法")
+#
+# per1 = Person()
+# per1.info()
 
-xiaoming.set_att("hallo")
-print(xiaoming.value)
+# class Person(object):
+#     def info(self):
+#         print('普通方法')
+#
+#     @property
+#     def show(self):
+#         print('特性方法')
+#
+#     @staticmethod
+#     def f1():
+#         print('静态方法')
+#
+#     @classmethod
+#     def add(cls):
+#         print('类方法')
+#
+#
+# if __name__ == '__main__':
+#     obj = Person()
+#     obj.info()
+#     obj.show
+#     obj.f1()
+#     obj.add()
 
-xiaohong.drink()
-xiaohong.run()
+# class Person(object):
+#     def eat(self):
+#         print("人吃饭")
+#
+# class Mother(Person):
+#     def eat(self):
+#         print("妈妈喜欢吃水果")
+#
+#     def run(self):
+#         print("妈妈跑得快")
+#
+# class Father(Person):
+#     def eat(self):
+#         print("爸爸喜欢吃肉")
+#
+# class Son(Father,Mother):
+#
+#     pass
+#
+# son = Son()
+# son.eat()
+# son.run()
 
+# class A():
+#     def show(self):
+#         print("我是父类A")
+#
+#
+# class B(A):
+#     pass
+#
+#
+# class C(A):
+#     def show(self):
+#         print("我是子类C")
+#
+#
+# class D(B, C):
+#     pass
+#
+#
+# d = D()
+# d.show()
+
+
+
+class Factory:
+    def createFruit(self,fruit):
+        if fruit == "apple":
+            return Apple()
+        elif fruit == "banana":
+            return Banana()
+
+class Fruit(object):
+    def __str__(self):
+        return 'fruit'
+
+
+class Apple(Fruit):
+    def __str__(self):
+        return 'apple'
+
+
+class Banana(Fruit):
+    def __str__(self):
+        return 'banana'
+
+if __name__ == '__main__':
+    factory = Factory()
+    print(factory.createFruit('apple'))
+    print(factory.createFruit('banana'))
