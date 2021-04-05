@@ -1,0 +1,31 @@
+test_name: login接口
+
+stages：
+   - name: test_login_001
+     request:
+       url:
+       method:
+       data:
+         username: tete
+         password: 111
+     response:
+       status_code: 200
+       body:
+         username: tete
+
+---
+test_name: username为空
+
+stages：
+   - name: test_login_002
+     request:
+       url:
+       method:
+       data:
+         username: tete
+         password: 111
+     response:
+       status_code: 400
+       body:
+         massage:
+          username: 您的用户名为空
